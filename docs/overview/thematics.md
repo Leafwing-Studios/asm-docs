@@ -56,3 +56,13 @@ The player controls a faction of evolved leaf-cutter ants, plants, fungi and mor
 - we should think carefully about our impact on the world
 - we can shape the world if we choose to, and build something worthwhile
 - the proper incentives and a light touch can create incredible systems
+
+# Key Uncertainties
+- what art style are we looking for?
+- how do units animated?
+- how 2D or 3D do we want our world to be?
+- why are the humans gone?
+- what did they leave behind?
+- how do other conspecifics feel about the player? Do they even exist?
+- how can we help players emotionally identify with the colony?
+- what do we call the overarching faction / collective / colony?

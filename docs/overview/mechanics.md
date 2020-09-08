@@ -57,3 +57,9 @@
 - you extract and create a wider diversity of resources
 - your resource processing chains grow longer and more complex
 - you must expand onto marginal land, or manage larger transportation networks
+
+# Key uncertainties
+- is signal-driven control usable and fun?
+- how do we encourage small outpost-style bases rather than a megabase?
+- how do we make sure the game feels responsive?
+- how can we balance genetic improvements to a single strain versus splitting them?

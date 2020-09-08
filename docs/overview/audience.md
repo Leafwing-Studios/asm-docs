@@ -36,7 +36,15 @@
 - derivative gameplay, including within the same game
 - imbalance and bugs that trivialize the game
 - optimal playstyles that destroy fun
-- crass humor
+- crass humor or macho culture
 - gratuitous violence
 - sexualization
 - pushy, attention-demanding messaging
+
+# Key uncertainties
+- does our target audience care about mechanical execution challenge?
+- how important is multiplayer, especially cooperative play?
+- how important is modding?
+- how important is transferrability of save files across versions?
+- how can we accomodate players with different challenge and excitement preferences?
+- how long of a game is preferred?
