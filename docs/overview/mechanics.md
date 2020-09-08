@@ -58,6 +58,8 @@
 - your resource processing chains grow longer and more complex
 - you must expand onto marginal land, or manage larger transportation networks
 
+# Constraints
+
 # Key uncertainties
 - is signal-driven control usable and fun?
 - how do we encourage small outpost-style bases rather than a megabase?

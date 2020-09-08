@@ -58,6 +58,8 @@ The player *is* the factory hivemind. They control a broad faction of evolved in
 - we can shape the world if we choose to, and build something worthwhile
 - the proper incentives and a light touch can create incredible systems
 
+# Constraints
+
 # Key Uncertainties
 - what art style are we looking for?
 - how do units animated?

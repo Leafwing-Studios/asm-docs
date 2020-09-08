@@ -41,6 +41,8 @@
 - sexualization
 - pushy, attention-demanding messaging
 
+# Constraints
+
 # Key uncertainties
 - does our target audience care about mechanical execution challenge?
 - how important is multiplayer, especially cooperative play?
