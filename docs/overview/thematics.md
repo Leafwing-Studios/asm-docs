@@ -4,10 +4,10 @@
 
 *Assimilation* is set on a post-apocalyptic earth, where humans have gone extinct due to an environmental catastrophe of their own making.
 
-Leaf-cutter ants are the primary protaganists, so the operating scale is incredibly small: you can see individual rain drops and mounds appear like mountains.
+Eusocial insects (inspired by leafcutter ants) are the primary protaganists, so the operating scale is incredibly small: you can see individual rain drops and mounds appear like mountains.
 
 ## What are the player's goals?
-The player controls a faction of evolved leaf-cutter ants, plants, fungi and more as they seek to build a complex and resilient civilization. They must gather, distribute and transform resources to
+The player *is* the factory hivemind. They control a broad faction of evolved insects, plants, fungi and more as they seek to build a complex and resilient civilization. They must gather, distribute and transform resources to
 
 ## What contrasting themes does this game focus on?
 - chaotic life | orderly automation
@@ -49,7 +49,8 @@ The player controls a faction of evolved leaf-cutter ants, plants, fungi and mor
 - Factorio
 - glowing fungi
 - strange mutants
-- Bug's Life and other small-world media
+- Bug's Life, Pikmin and other small-world media
+- Starcraft Zerg
 
 ## What's the emotional message we're trying to send?
 - sustainability and robustness are key
