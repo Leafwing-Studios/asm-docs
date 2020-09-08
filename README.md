@@ -1,6 +1,6 @@
 <!-- Github repo readme -->
 
-Full rules compendium for the Fonts of Power roleplaying game.
+Documentation for *Assimilation*, an organic factory-building game.
 
 # Build Instructions
 1. Install the current version of [npm](https://nodejs.org/en/)

@@ -1,0 +1,1 @@
+You can zone, shoot pheromones and research genetic tech.
