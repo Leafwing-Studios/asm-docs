@@ -7,7 +7,7 @@
 Eusocial insects (inspired by leafcutter ants) are the primary protaganists, so the operating scale is incredibly small: you can see individual rain drops and mounds appear like mountains.
 
 ## What are the player's goals?
-The player *is* the factory hivemind. They control a broad faction of evolved insects, plants, fungi and more as they seek to build a complex and resilient civilization. They must gather, distribute and transform resources to
+The player *is* the factory hivemind. They control a broad faction of evolved insects, plants, fungi and more as they seek to build a complex and resilient civilization. They must gather, distribute and transform resources to grow their colony and advance technologically.
 
 ## What contrasting themes does this game focus on?
 - chaotic life | orderly automation
