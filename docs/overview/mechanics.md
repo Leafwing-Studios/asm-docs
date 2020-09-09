@@ -1,7 +1,7 @@
 # Big Picture Questions about Mechanics
 
 ## What are the most basic building blocks of the game's world?
-- **Tiles** are the basic units of space, which contain resources 
+- **Tiles** are the basic units of space, which contain resources.
 - **Resources** are the basic currencies of the world, which must be refined, moved and converted.
 - **Organisms** are living creatures.
   - **Units** are animals which move, build, carry resources, eat, die and attack.
@@ -17,18 +17,19 @@
 1. Explore to find a useful new place
 2. Connect that useful new place to your existing base
 3. Automate sustainable resource extraction in that useful new place
-4. Spend resources to breed new forms or improve existing ones to improve resource extraction
+4. Spend resources to breed new strains or improve existing ones
   
 ## What are this game's unique gameplay propositions?
 - you must design for robustness and graceful failure
 - you must ensure that resource use is sustainable by adapting to the local environment
-- you must gently coax your orgamisms to do what you need through the use of signals, rather than relying on perfectly reliable robots
+- you must gently coax your orgamisms to do what you need through the use of signals, rather than using perfectly reliable robots
+- you can create wildly diverse custom organisms through breeding
 
 ## What does the game sacrifice and why?
 - fine-grained control, to force players to design for robustness and scalable attention
 - fair combat, to encourage dominance by resource superiority
 - easily balanced units and structures that are defined a priori, to encourage customization and sell the theme
-- fully 3D gameplay environments, for ease of visulization and interactions (as well as performance reasons)
+- fully 3D gameplay environments, for ease of visualization and interactions (as well as performance reasons)
 - shiny realistic graphics, for performance and budget reasons
 - tightly balanced highly reliable optimization puzzles, to encourage building for resilience
 - a player avatar in the game, to sell the theme and to prevent issues with boring travel time
@@ -39,14 +40,14 @@
 - designing for robustness in a world with strong temporal and enviromental variability
 - understanding uses and pathways for resources
 - debugging signalling issues
-- gracefully handling resources excesses
-- defending your resource rich base from pillagers
+- gracefully handling resources excesses and shortages
+- defending your resource-rich base from pillagers
 
 ## What core tensions need to be balanced?
 - building new bases to exploit new resources | optimizing existing bases
 - scaling up existing production | researching new options
 - spending pheromones to fix problems | automating a permanent solution
-- localizing production to reduce transport costs | distributing resources to allow for specialization and simplicity
+- localizing production to reduce transport costs | scaling production to exploit environmental variability and economies of scales (specialization, integration, perimeter-area scaling)
 - specialized strains | generalist strains
 - dense, efficient factories | open factories that are less congested
 
@@ -59,11 +60,35 @@
 - you must expand onto marginal land, or manage larger transportation networks
 
 # Constraints
+- transport costs are high
+- environmental and temporal variability is high
+- local terrain has important strategic value and is hard to change and is in limited supply
+- everything has a maintenance cost
+- everything is localized and varies on a gameplay-relevant scale: resources, threats and units
+- breeding choices must be quantized
+  - tradeoffs have 3 or 5 levels
+- every breeding choice must be symettrically reversible
+- maintaining many strains is more expensive than maintaining few
+  - splitting has a fixed cost
+  - evolution costs are absolute, not scaled with population
+  - upgrades do not affect sister strains, leading to higher future costs
+- signal preferences must be able to be quickly changed and debugged
+  - orthogonal to genetic evolution
 
 # Key uncertainties
 - is signal-driven control usable and fun?
-- how do we encourage small outpost-style bases rather than a megabase?
 - how do we make sure the game feels responsive?
-- how can we balance genetic improvements to a single strain versus splitting them?
+  - framing as "watch your factory grow"
+  - make pheromones feel good
+  - automatic deployment of genetic claims
 - how much control and precision do you have over your own colony?
-- which parts of the game do you have fine control over?
+  - which parts of the game do you have fine control over?
+  - how do we make pheromones feel fast and powerful without making them mandatory for micro?
+- how do we implement combinators?
+  - reads values out of structures
+  - reads signals
+  - does math and makes decisions
+- how do we avoid the feeling that we need to rip up our existing solutions?
+  - repurposing
+  - gradually cannabilizing
+  - resource salvaging
