@@ -65,3 +65,5 @@
 - how do we encourage small outpost-style bases rather than a megabase?
 - how do we make sure the game feels responsive?
 - how can we balance genetic improvements to a single strain versus splitting them?
+- how much control and precision do you have over your own colony?
+- which parts of the game do you have fine control over?

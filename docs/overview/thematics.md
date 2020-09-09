@@ -17,7 +17,7 @@ The player *is* the factory hivemind. They control a broad faction of evolved in
 
 ## What narrative challenges does the player face?
 - internal
-  - convincing units to do what you want
+  - carefully convincing units to prioritize tasks appropriately
   - controlling the spread of their own structures
   - optimizing sustainable harvests
 - external
@@ -25,13 +25,14 @@ The player *is* the factory hivemind. They control a broad faction of evolved in
   - fighting off raiders
   - coping with shifting weather
   - exploring dangerous new terrain
+  - (?) other colonies attacking you, increasing in hostility as you diverge genetically
 
 ## What are the common experiential beats?
 - positive
   - you complete genetic research
-  - you domestic a new species
+  - you domesticate a new species
   - you sucessfully repel an attack
-  - you master a new resource
+  - you harvest and use a new resource
   - you complete a new outpost
 - negative
   - a sudden environmental change occurs
@@ -53,19 +54,25 @@ The player *is* the factory hivemind. They control a broad faction of evolved in
 - Starcraft Zerg
 
 ## What's the emotional message we're trying to send?
-- sustainability and robustness are key
-- we should think carefully about our impact on the world
+- nature is weird and wonderful
+- enviromental sustainability and robustness are key
 - we can shape the world if we choose to, and build something worthwhile
 - the proper incentives and a light touch can create incredible systems
 
 # Constraints
+- no humans
+- no single, living characters
+- must be easily contrasted to Factorio
+- tiny scale
+- no brutal violence
+- enviromental storytelling only
 
 # Key Uncertainties
 - what art style are we looking for?
-- how do units animated?
+- how are units animated?
 - how 2D or 3D do we want our world to be?
 - why are the humans gone?
 - what did they leave behind?
-- how do other conspecifics feel about the player? Do they even exist?
 - how can we help players emotionally identify with the colony?
 - what do we call the overarching faction / collective / colony?
+- how do we handle massive distances? mini colonies with a limited map size that trade?
