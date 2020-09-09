@@ -2,20 +2,23 @@
 
 ## What is the world like?
 
-*Assimilation* is set on a post-apocalyptic earth, where humans have gone extinct due to an environmental catastrophe of their own making.
+_Assimilation_ is set on a post-apocalyptic earth, where humans have gone extinct due to an environmental catastrophe of their own making.
 
-Eusocial insects (inspired by leafcutter ants) are the primary protaganists, so the operating scale is incredibly small: you can see individual rain drops and mounds appear like mountains.
+Eusocial insects (inspired by leafcutter ants) are the primary protagonists, so the operating scale is incredibly small: you can see individual rain drops and mounds appear like mountains.
 
 ## What are the player's goals?
-The player *is* the factory hivemind. They control a broad faction of evolved insects, plants, fungi and more as they seek to build a complex and resilient civilization. They must gather, distribute and transform resources to grow their colony and advance technologically.
+
+The player _is_ the factory hivemind. They control a broad faction of evolved insects, plants, fungi and more as they seek to build a complex and resilient civilization. They must gather, distribute and transform resources to grow their colony and advance technologically.
 
 ## What contrasting themes does this game focus on?
+
 - chaotic life | orderly automation
 - serenity of nature | danger of nature
 - untouched wilderness | remnants of pollution
 - trying to do better than humans | repeating the same steps
 
 ## What narrative challenges does the player face?
+
 - internal
   - carefully convincing units to prioritize tasks appropriately
   - controlling the spread of their own structures
@@ -28,10 +31,11 @@ The player *is* the factory hivemind. They control a broad faction of evolved in
   - (?) other colonies attacking you, increasing in hostility as you diverge genetically
 
 ## What are the common experiential beats?
+
 - positive
   - you complete genetic research
   - you domesticate a new species
-  - you sucessfully repel an attack
+  - you successfully repel an attack
   - you harvest and use a new resource
   - you complete a new outpost
 - negative
@@ -46,6 +50,7 @@ The player *is* the factory hivemind. They control a broad faction of evolved in
   - you uncover a new area of the map
 
 ## What aesthetics have inspired this game?
+
 - strange earth biology
 - Factorio
 - glowing fungi
@@ -54,20 +59,23 @@ The player *is* the factory hivemind. They control a broad faction of evolved in
 - Starcraft Zerg
 
 ## What's the emotional message we're trying to send?
+
 - nature is weird and wonderful
-- enviromental sustainability and robustness are key
+- environmental sustainability and robustness are key
 - we can shape the world if we choose to, and build something worthwhile
 - the proper incentives and a light touch can create incredible systems
 
 # Constraints
+
 - no humans
 - no single, living characters
 - must be easily contrasted to Factorio
 - tiny scale
 - no brutal violence
-- enviromental storytelling only
+- environmental storytelling only
 
 # Key Uncertainties
+
 - what art style are we looking for?
 - how are units animated?
 - how 2D or 3D do we want our world to be?

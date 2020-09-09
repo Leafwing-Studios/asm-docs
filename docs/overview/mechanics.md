@@ -1,6 +1,7 @@
 # Big Picture Questions about Mechanics
 
 ## What are the most basic building blocks of the game's world?
+
 - **Tiles** are the basic units of space, which contain resources.
 - **Resources** are the basic currencies of the world, which must be refined, moved and converted.
 - **Organisms** are living creatures.
@@ -9,23 +10,27 @@
 - **Signals** are emitted by structures and resources, travelling between tiles in a local fashion. Units use signals to navigate and determine priorities.
 
 ## How can the player interact with the world?
+
 - **Pheromones:** Rapidly produce signals or grant buffs in a specific location where you have vision. These are expensive, limited and powerful, to be used for quickly solving one-time frustrations.
 - **Zoning:** Designate tiles to contain specific structures (or none at all), manually or with a blueprint system. You can control the strength of the zoning to change prioritization.
 - **Breeding:** By spending resources (and time), you can create new **strains** or improve existing ones.
 
 ## What is the core gameplay loop?
+
 1. Explore to find a useful new place
 2. Connect that useful new place to your existing base
 3. Automate sustainable resource extraction in that useful new place
 4. Spend resources to breed new strains or improve existing ones
-  
+
 ## What are this game's unique gameplay propositions?
+
 - you must design for robustness and graceful failure
 - you must ensure that resource use is sustainable by adapting to the local environment
-- you must gently coax your orgamisms to do what you need through the use of signals, rather than using perfectly reliable robots
+- you must gently coax your organisms to do what you need through the use of signals, rather than using perfectly reliable robots
 - you can create wildly diverse custom organisms through breeding
 
 ## What does the game sacrifice and why?
+
 - fine-grained control, to force players to design for robustness and scalable attention
 - fair combat, to encourage dominance by resource superiority
 - easily balanced units and structures that are defined a priori, to encourage customization and sell the theme
@@ -37,13 +42,15 @@
 - a traditional story, in order to fit the theme and focus on environmental storytelling
 
 ## What raw skills need to be mastered?
-- designing for robustness in a world with strong temporal and enviromental variability
+
+- designing for robustness in a world with strong temporal and environmental variability
 - understanding uses and pathways for resources
 - debugging signalling issues
 - gracefully handling resources excesses and shortages
 - defending your resource-rich base from pillagers
 
 ## What core tensions need to be balanced?
+
 - building new bases to exploit new resources | optimizing existing bases
 - scaling up existing production | researching new options
 - spending pheromones to fix problems | automating a permanent solution
@@ -52,6 +59,7 @@
 - dense, efficient factories | open factories that are less congested
 
 ## How does the game change as you progress?
+
 - you develop more strains, and domesticate new species
 - your strains are more powerful
 - you extract more resources
@@ -60,6 +68,7 @@
 - you must expand onto marginal land, or manage larger transportation networks
 
 # Constraints
+
 - transport costs are high
 - environmental and temporal variability is high
 - local terrain has important strategic value and is hard to change and is in limited supply
@@ -67,7 +76,7 @@
 - everything is localized and varies on a gameplay-relevant scale: resources, threats and units
 - breeding choices must be quantized
   - tradeoffs have 3 or 5 levels
-- every breeding choice must be symettrically reversible
+- every breeding choice must be symmetrically reversible
 - maintaining many strains is more expensive than maintaining few
   - splitting has a fixed cost
   - evolution costs are absolute, not scaled with population
@@ -76,6 +85,7 @@
   - orthogonal to genetic evolution
 
 # Key uncertainties
+
 - is signal-driven control usable and fun?
 - how do we make sure the game feels responsive?
   - framing as "watch your factory grow"
@@ -90,5 +100,5 @@
   - does math and makes decisions
 - how do we avoid the feeling that we need to rip up our existing solutions?
   - repurposing
-  - gradually cannabilizing
+  - gradually cannibalizing
   - resource salvaging
