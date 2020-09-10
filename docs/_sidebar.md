@@ -31,7 +31,7 @@
   - [Production and Diffusion](signals/diffusion.md)
   - [Decision-making](signals/decisions.md)
     - [Sensitivity](signals/sensitivity.md)
-    - [Actions and Intents](signals/actions-intents.md)
+    - [Activities, Intents and Actions](signals/activities-intents-actions.md)
   - [Zoning](signals/zoning.md)
 - [User Interface](ui/)
   - [Display](ui/display.md)
