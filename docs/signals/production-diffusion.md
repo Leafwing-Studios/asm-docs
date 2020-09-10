@@ -1,3 +1,17 @@
+# Signal Production
+
+Organisms and resources steadily produce signals, slowly spreading out.
+
+# Constraints
+
+# Key Uncertainties
+
+- does chasing a moving target using signals work properly? Is this desired?
+- are waves produced when buildings / resources only tick infrequently?
+- how can we tweak and alter signals in interesting ways to change the default behaviors?
+
+# Signal Diffusion
+
 Signal diffusion operates using a modification of the standard [diffusion equation](https://en.wikipedia.org/wiki/Diffusion_equation).
 
 The critical properties of the standard diffusion equation are:
@@ -23,6 +37,13 @@ We modify this in the following ways:
 - at most tiles, actual signal value does not matter, because there is no unit or combinator there
 
 # Constraints
+
+## Production
+
+- everything needs a different type of signal, or differences can't be detected
+- everything needs to produce a passive signal, or it can't be detected
+
+## Diffusion
 
 - signal quantity during diffusion is conserved or decays in order to ensure that it doesn't pile up endlessly
 - signals are always stronger closer to their stationary source

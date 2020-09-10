@@ -9,16 +9,10 @@ Units choose intentions based on the following algorithm:
 3. Select the highest value as the unit's **intention.**
 4. If there are no pressing needs or active push / pull signals, the unit wanders.
 
-Once an intention has been determined:
+Once an intention has been determined, the intention persists until the task has been completed, or has been overridden.
+Needs override wants override wandering.
 
-1. The intention persists until the task has been completed, or has been overridden.
-   1. Needs override wants, which override wandering.
-2. The unit checks to see if the appropriate action can be performed while in the current tile.
-   1. If yes, it performs that action.
-   2. If not, a **direction** is chosen, based on which adjacent, empty tile contains the highest concentration of the appropriate signal.
-
-When selecting a direction, negative perceptions are summed, then subtracted from the corresponding tile.
-This helps units avoid bad paths, which contain excessive congestion, dead allies or dangerous hazards.
+# Competing wants
 
 # Tolerances
 
@@ -35,3 +29,4 @@ This helps units avoid bad paths, which contain excessive congestion, dead allie
 - how do we manage traffic jams?
 - does making fear a need create the appropriate behavior?
 - do we need to let wants overpower current intentions before items get picked up? This is slower and fussier, but might result in more responsiveness
+- do want intents persist between needs?

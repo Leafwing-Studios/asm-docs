@@ -13,9 +13,9 @@ Players can examine the signals present in an area through various [analytics](.
 
 # Data structure
 
-Signals are a two-tuple of **signal type** and **signal identity.**
+Signals are a three-tuple of an activity, identity and a float that represents the amount of signal present.
 
-Signal type is an enum, one of:
+**Activity** is an enum, one of:
 
 - **push:** actively attempts to remove something
   - analogous to active provider chests in Factorio
@@ -23,15 +23,107 @@ Signal type is an enum, one of:
 - **passive:** indicates where something is
   - analogous to passive provider chests in Factorio
   - resources and units always give off this signal type
-  - this is used for showing where items are, and od
 - **pull:** actively attempts to grab something
   - analogous to requester chests in Factorio
+- **work:** requests worker input in a static location
+  - used for calling workers over without needing them to bring a good
+  - signal identity corresponds to
 
-If a unit is carrying goods following a push signal, and do not find any matching pull signals, they will [wander](../organisms/actions.md) until they find a suitable tile to deposit the excess resources.
+If a unit is carrying goods following a push signal, and do not find any matching pull signals, they will [wander](../organisms/actions.md) until they find a suitable tile to deposit the excess resources. Tiles are suitable if:
 
-Signal types are stored in a hierarchical enum, providing an organization for players to understand the complex array of signals available.
+1. They are not zoned.
+2. They are empty or contain a compatible pile.
 
-The leaf nodes of this hierarchy of are floats, representing the localized quantity of signal present.
+**Identity** is stored in a hierarchical [non-exhaustive](https://doc.rust-lang.org/reference/attributes/type_system.html) enum, providing an organization for players to understand the complex array of objects available.
+This enum is reused throughout the game, and updated when new strains are created.
+
+# Critical subroutines
+
+## Wander
+
+1. Weight each adjacent, passable tile based on their negative signals.
+2. Select one of those tiles randomly as the destination tile.
+3. Move to that tile.
+
+## Follow a signal
+
+1. Check to see if the appropriate action can be performed while in the current tile.
+   1. If yes, perform that action.
+2. If not, a destination tile is chosen. For each adjacent, passable tile:
+   1. Sum all negative perceptions and the perception of the signal corresponding to its current intent, producing a net perception for that tile.
+3. Set the destination tile as the tile with the highest net perception.
+4. Move to the destination tile.
+
+## Signal buildup
+
+1. A structure emits a signal.
+   1. The signal continues to grow in intensity over time.
+2. Eventually, a worker takes on the corresponding intent.
+3. The problem is fixed, and the signal wanes again.
+
+# Standard use cases
+
+## Keeping a tile clear
+
+1. The player zones a tile as clear.
+2. Something occurs that causes the tile contents to be non-empty.
+3. Signal buildup occurs, recruiting units.
+4. The unit follows the push signal.
+5. The unit picks up as much of the tile contents as they can carry.
+   1. If the tile is now empty, the push emitter turns off.
+6. The unit searches for a corresponding pull signal.
+   1. If a pull signal is found, they change their intent to that pull signal.
+      1. They follow that pull signal, and drop off the object they are holding there.
+      2. If the apex is reached with no available action, their intent changes to dump.
+   2. If none can be found, they change their intent to "dump".
+      1. While their intent is dump, they wander until they find a tile that can accept the object they are holding.
+
+## Creating a new structure
+
+1. The player zones a tile with the structure.
+   1. The player can zone more tiles, increasing signal strength and thus the amount of workers that attempt to bring material.
+   2. The player can
+2. If the tile is not clear, it emits a push signal for its current contents. See _Keeping a tile clear_ above.
+   1. This is needed to be sure that weeds don't constantly overgrow.
+3. The tile simultaneously emits a pull signal for its desired contents via signal buildup, recruiting units.
+4. The unit searches for a corresponding push signal. Either:
+   1. A push signal is found, and the unit sets their new intention as this push signal.
+   2. No push signal is found. The unit sets their intention as the corresponding passive signal.
+5. The unit follows the signal gradient until they are adjacent to a suitable tile.
+   1. A tile is suitable for the push signal intent if it contains a push signal emitting organism.
+   2. A tile is suitable for the pull signal intent if it contains a passive signal emitting organism.
+6. If the unit had a push signal intent, it now swaps to a pull signal intent.
+7. The unit now follows the pull signal gradient until it is adjacent to a pull signal emitting organism.
+8. The unit deposits the chunk of the structure they were holding.
+9. The zoning signal weakens. If the structure is fully built, the zoning signal stops emitting.
+10. Other units who were chasing the pull signal continue following the signal:
+11. If other emitters exist nearby, they will deposit their object near there instead.
+12. If the apex is reached with no available action, their intent changes to the corresponding pull if one exists, otherwise, dump.
+
+## Repairing a structure
+
+1. The player zones a tile with the structure.
+2. The structure is damaged.
+3. The zoning signal strengthens based on the amount of mass missing.
+4. Replacement material / organisms are fetched, following _Creating a New Structure_ above.
+
+## Fetching an ingredient
+
+1. The structure requests the ingredient and signal build-up occurs.
+2. A unit sets its intent to the appropriate ingredient.
+3. The unit fetches the ingredient, following the pull activity, as outlined in _Creating a New Structure_ above.
+
+## Storing processed goods
+
+1. Either:
+   1. The structure provides a push signal. Goods are taken away and stored wherever possible.
+   2. The structure provides a passive signal. Goods are taken away when a pull signal exists.
+
+## Work is needed
+
+1. Signal build-up occurs.
+2. Workers are summoned.
+3. Workers occupy adjacent tiles, performing work on the structure, until a need is met or the work emitter stops.
 
 # Constraints
 
@@ -41,4 +133,10 @@ The leaf nodes of this hierarchy of are floats, representing the localized quant
 # Key Uncertainties
 
 - should signals actually be stored on a per-tile basis? This seems unidiomatic in ECS
-- how should excess goods be handled? Do we want generic storage, or just to dump stuff into the environment as listed?
+- how should negative signals + wandering be handled, concretely?
+- can we eliminate the randomness from the Wander subroutine?
+- what happens to existing signals when structures are built over them?
+- how do we avoid collisions between units who both want to enter the same tile?
+- how do we signal for a "generic" input, like "organic matter to compost" or "a worker" or "a enemy"?
+  - do we need to move away from trees for identity?
+  - is there a nice syntax for this? how does one pattern match programmatically in Rust in the first place?
