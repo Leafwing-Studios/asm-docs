@@ -22,6 +22,7 @@ Signals are a three-tuple of an signal type, an identity and a float that repres
 - **passive:** indicates where something is
   - analogous to passive provider chests in Factorio
   - resources and units always give off this signal type
+  - signals to avoid something use passive signals and a negative signal-weight
 - **push:** actively attempts to remove something
   - analogous to active provider chests in Factorio
   - primarily used for zoning for negative space, or to clear construction sites
