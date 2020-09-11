@@ -1,6 +1,6 @@
 # Decisions
 
-Every time step, each unit without an intent chooses one according to the following algorithm:
+Every time step, each unit chooses one according to the following algorithm:
 
 1. If the unit's intent is already a need, break.
 2. Check each need in a deterministic order.
