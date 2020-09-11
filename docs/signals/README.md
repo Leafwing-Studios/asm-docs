@@ -63,7 +63,7 @@ This enum is reused throughout the game, and updated when new strains are create
 3. The tile simultaneously emits a pull signal for its desired contents via signal buildup, recruiting units.
 4. The unit searches for a corresponding push signal. Either:
    1. A push signal is found, and the unit sets their new intention as this push signal.
-   2. No push signal is found. The unit sets their intention as the corresponding passive signal.
+   2. No push signal is found. The unit follows the gradient of the corresponding passive signal.
 5. The unit follows the signal gradient until they are adjacent to a suitable tile.
    1. A tile is suitable for the push signal intent if it contains a push signal emitting organism.
    2. A tile is suitable for the pull signal intent if it contains a passive signal emitting organism.
@@ -72,8 +72,8 @@ This enum is reused throughout the game, and updated when new strains are create
 8. The unit deposits the chunk of the structure they were holding.
 9. The zoning signal weakens. If the structure is fully built, the zoning signal stops emitting.
 10. Other units who were chasing the pull signal continue following the signal:
-11. If other emitters exist nearby, they will deposit their object near there instead.
-12. If the apex is reached with no available action, their intent changes to the corresponding pull if one exists, otherwise, dump.
+    1. If other emitters exist nearby, they will deposit their object near there instead.
+    2. If the apex is reached with no available action, their intent changes to dump.
 
 ### Repairing a structure
 

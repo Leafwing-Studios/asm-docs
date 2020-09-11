@@ -120,6 +120,8 @@ TODO: add defecation mechanics.
 Place the currently carried object in an adjacent tile.
 The tile must either be empty, set up to receive an input of the appropriate type, or already contain the same sort of object.
 
+If something is in the way, you pick it up simultaneously, then look for the corresponding pull signal. If none is found, dump.
+
 ### Eat
 
 Consumes the currently held object.
