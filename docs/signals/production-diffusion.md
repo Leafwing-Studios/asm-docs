@@ -2,14 +2,6 @@
 
 Organisms and resources steadily produce signals, slowly spreading out.
 
-# Constraints
-
-# Key Uncertainties
-
-- does chasing a moving target using signals work properly? Is this desired?
-- are waves produced when buildings / resources only tick infrequently?
-- how can we tweak and alter signals in interesting ways to change the default behaviors?
-
 # Signal Diffusion
 
 Signal diffusion operates using a modification of the standard [diffusion equation](https://en.wikipedia.org/wiki/Diffusion_equation).
@@ -39,6 +31,10 @@ We modify this in the following ways:
 
 # Constraints
 
+- signals must build up over time if a constant emitter is left unsatisfied
+  - this ensures an automatic balancing of effort
+  - it's alright if
+
 ## Production
 
 - everything needs a different type of signal, or differences can't be detected
@@ -53,9 +49,14 @@ We modify this in the following ways:
 
 # Key Uncertainties
 
+- how often do signal emitters need to tick?
 - do we need to incorporate fancier discretization schemes in order to avoid artifacts?
 - can we compute these faster by taking a less local approach?
 - how does diffusion interact with changes in height?
 - would it be possible to eliminate the time delay of signal propagation? Would we even want to do this?
   - can we swap to something like local regression or CNNs to approximate this instead?
   - [Arad et al. 1995](https://onlinelibrary.wiley.com/doi/abs/10.1002/nme.1620381104) seems like a promising start
+  - this seems to violate the constraint that signals must build up :(
+- does chasing a moving target using signals work properly? Is this desired?
+- are waves produced when buildings / resources only tick infrequently?
+- how can we tweak and alter signals in interesting ways to change the default behaviors?

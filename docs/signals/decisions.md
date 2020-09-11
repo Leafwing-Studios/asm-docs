@@ -1,32 +1,156 @@
-Units choose intentions based on the following algorithm:
+Every time step, each unit without an intent chooses one according to the following algorithm:
 
-1. TODO: Write this algorithm.
+1. If the unit's intent is already a need, break.
+2. Check each need in a deterministic order.
+   1. If a need is pressing, set intent to that need and break.
+3. If the unit is already carrying an object, break.
+4. Compare wants.
+   1. Compute preferences as the product of each push / pull signal in the current tile by the unit's corresponding signal sensitivity.
+   2. Set intent to the highest preference and break.
+5. If no wants were found, set the intention to wander.
 
-Once an intention has been determined, the intention persists until the task has been completed, or has been overridden.
-
-# Activities
-
-Activities are an enum, used in the definition of each signal.
-
-- **push:** actively attempts to remove something
-  - analogous to active provider chests in Factorio
-  - primarily used for zoning for negative space, or to clear construction sites
-- **passive:** indicates where something is
-  - analogous to passive provider chests in Factorio
-  - resources and units always give off this signal type
-- **pull:** actively attempts to grab something
-  - analogous to requester chests in Factorio
-- **work:** requests worker input in a static location
-  - used for calling workers over without needing them to bring a good
-  - signal identity corresponds to the type of activity that needs to be performed
+Once an intent has been determined, the intent persists until overridden or removed as part of the intent logic.
 
 # Intents
 
 Intents are a hierarchical enum, split into need / want / wander. Intents set a tangible behavioral pattern.
 
+## Needs
+
+### Defecation
+
+**Trigger:** The unit's bowels are full.
+
+**Behavior:** Pause to defecate in the current tile. This enriches the soil with nutrients. Then, reset intent.
+
+### Fear
+
+**Trigger:** The sum of negative signals in the current tile is greater than their `fear_threshold`.
+
+**Behavior:** Take the wander action, then reset intent.
+
+### Hunger
+
+**Trigger:** The unit's energy has fallen below their `hunger_threshold`.
+
+**Behavior:** If carrying food, eat. If adjacent to food, lift it. Otherwise, travel following the strongest (weighted) passive food signal.
+
+### Thirst
+
+**Trigger:** The unit's water has fallen below their `thirst_threshold`.
+
+**Behavior:** If carrying food, eat. If adjacent to food, lift it. Otherwise, travel following the strongest (weighted) passive water signal.
+
+## Wants
+
+### Push
+
+**Trigger:** A push signal was selected as the highest priority want. This intent also encodes the identity of the object requested.
+
+**Behavior:**
+
+1. If not carrying the identified object:
+   1. If adjacent to a push emitter, lift the specified object from the strongest push emitter.
+   2. Otherwise, travel to follow the push signal.
+2. If carrying the identified object:
+   1. If a pull signal of the identified type exists, change intent to that pull signal.
+   2. Otherwise:
+      1. If adjacent suitable tile to drop the object exists, drop the object there.
+      2. Otherwise, wander.
+
+TODO: how are ties broken for dropping objects?
+
+### Pull
+
+**Trigger:** A pull signal was selected as the highest priority want.
+
+**Behavior:**
+
+1. If not carrying the identified object:
+   1. If a corresponding push signal is found, change intent to that push signal.
+   2. If adjacent to a passive emitter of that object, lift the specified object from the strongest passive emitter.
+   3. Otherwise, follow the corresponding passive signal.
+      1. If the apex of the passive signal is reached and no object exists to be picked up, ignore this signal for some period of time.
+2. If carrying the identified object:
+   1. If adjacent to a corresponding pull emitter, drop the object on the strongest emitter.
+   2. Otherwise, travel to follow the pull signal.
+
+### Work
+
+**Trigger:** A work signal was selected as the highest priority want.
+
+**Behavior:**
+
+1. If adjacent to a corresponding work emitter, take the craft action.
+2. Otherwise, travel to follow the work signal.
+
+## Wandering
+
+**Trigger:** No wants or needs were found.
+
+**Behavior:** Take the wander action, then reset intent.
+
 # Actions
 
 Actions are tangible actions that units can take in order to carry out their intents.
+
+Every action has an associated energy cost (which may be 0) and time cost (which cannot be 0).
+
+## Craft
+
+Performs work at an adjacent matching structure.
+
+## Defecate
+
+TODO: add defecation mechanics.
+
+## Drop
+
+Place the currently carried object in an adjacent tile.
+The tile must either be empty, set up to receive an input of the appropriate type, or already contain the same sort of object.
+
+## Eat
+
+Consumes the currently held object.
+
+TODO: add food mechanics.
+
+## Fight
+
+TODO: add combat mechanics.
+
+## Lift
+
+Picks up the desired object from an adjacent tile.
+
+For piles and structures, breaks off an amount of mass equal to the `LiftingCapacity` of the unit.
+If there is not enough mass available, all remaining mass is taken and the tile is set to empty.
+
+## Travel
+
+Determines where to move, then moves there.
+
+1. If the intent signal is stronger in the current tile than any of its neighbors:
+   1. Ignore this signal for some period of time.
+   2. Reset intent.
+2. For each adjacent, passable tile:
+   1. Sum all negative perceptions and the product of the intent signal and the corresponding signal sensitivity, producing a net perception for that tile.
+3. Set the destination tile as the tile with the highest net perception.
+4. Move to the destination tile.
+
+TODO: how long are signals ignored for?
+
+TODO: add movement calculations.
+
+## Wander
+
+1. Weight each adjacent, passable tile based on their negative signals.
+2. Select one of those tiles randomly as the destination tile.
+3. Move to that tile.
+4. Reset intent.
+
+TODO: how exactly do negative signals get weighted?
+TODO: can we eliminate the randomness?
 
 # Tolerances
 
@@ -42,9 +166,7 @@ Actions are tangible actions that units can take in order to carry out their int
 
 # Key Uncertainties
 
-- what actions exist?
-- what needs exist?
-- how do we want to manage defecation?
-- how do we want to manage nutritional balance?
-- how do we manage traffic jams?
+- how do we manage traffic jams?'
+  - is a negative attraction to other units adequate?
 - do want intents persist between needs?
+- matching push / pull will always be prioritized over passive, is this what we want?

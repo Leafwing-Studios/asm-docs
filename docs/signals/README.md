@@ -13,36 +13,24 @@ Players can examine the signals present in an area through various [analytics](.
 
 # Data structure
 
-Signals are a three-tuple of an activity, identity and a float that represents the amount of signal present.
+Signals are a three-tuple of an signal type, an identity and a float that represents the amount of signal present.
 
-[**Activity**](activities-actions-intents.md) is an enum: either passive, push, pull or work.
+[**Signal type**](activities-actions-intents.md) is an enum:
+
+- **passive:** indicates where something is
+  - analogous to passive provider chests in Factorio
+  - resources and units always give off this signal type
+- **push:** actively attempts to remove something
+  - analogous to active provider chests in Factorio
+  - primarily used for zoning for negative space, or to clear construction sites
+- **pull:** actively attempts to grab something
+  - analogous to requester chests in Factorio
+- **work:** requests worker input in a static location
+  - used for calling workers over without needing them to bring a good
+  - signal identity corresponds to the type of activity that needs to be performed
 
 **Identity** is stored in a hierarchical [non-exhaustive](https://doc.rust-lang.org/reference/attributes/type_system.html) enum, providing an organization for players to understand the complex array of objects available.
 This enum is reused throughout the game, and updated when new strains are created.
-
-# Critical subroutines
-
-## Wander
-
-1. Weight each adjacent, passable tile based on their negative signals.
-2. Select one of those tiles randomly as the destination tile.
-3. Move to that tile.
-
-## Follow a signal
-
-1. Check to see if the appropriate action can be performed while in the current tile.
-   1. If yes, perform that action.
-2. If not, a destination tile is chosen. For each adjacent, passable tile:
-   1. Sum all negative perceptions and the perception of the signal corresponding to its current intent, producing a net perception for that tile.
-3. Set the destination tile as the tile with the highest net perception.
-4. Move to the destination tile.
-
-## Signal buildup
-
-1. A structure emits a signal.
-   1. The signal continues to grow in intensity over time.
-2. Eventually, a worker takes on the corresponding intent.
-3. The problem is fixed, and the signal wanes again.
 
 # Standard use cases
 
@@ -116,8 +104,6 @@ This enum is reused throughout the game, and updated when new strains are create
 # Key Uncertainties
 
 - should signals actually be stored on a per-tile basis? This seems unidiomatic in ECS
-- how should negative signals + wandering be handled, concretely?
-- can we eliminate the randomness from the Wander subroutine?
 - what happens to existing signals when structures are built over them?
 - how do we avoid collisions between units who both want to enter the same tile?
 - how do we signal for a "generic" input, like "organic matter to compost" or "a worker" or "a enemy"?
