@@ -1,32 +1,50 @@
-When a unit completes its current [action](../organisms/actions.md), it must decide what to do next.
-
-Units have three possible behaviors: following a [**need**](needs.md), following a **want**, or [wandering](../organisms/actions.md).
-
 Units choose intentions based on the following algorithm:
 
-1. If a unit has a pressing need, this becomes their new intention. If they have more than one, they follow a standard but arbitrary order.
-2. Multiply all push and pull signals in the current tile by the units by the unit's corresponding [signal sensitivity](sensitivity.md), producing **perceptions**.
-3. Select the highest value as the unit's **intention.**
-4. If there are no pressing needs or active push / pull signals, the unit wanders.
+1. TODO: Write this algorithm.
 
 Once an intention has been determined, the intention persists until the task has been completed, or has been overridden.
-Needs override wants override wandering.
 
-# Competing wants
+# Activities
+
+Activities are an enum, used in the definition of each signal.
+
+- **push:** actively attempts to remove something
+  - analogous to active provider chests in Factorio
+  - primarily used for zoning for negative space, or to clear construction sites
+- **passive:** indicates where something is
+  - analogous to passive provider chests in Factorio
+  - resources and units always give off this signal type
+- **pull:** actively attempts to grab something
+  - analogous to requester chests in Factorio
+- **work:** requests worker input in a static location
+  - used for calling workers over without needing them to bring a good
+  - signal identity corresponds to the type of activity that needs to be performed
+
+# Intents
+
+Intents are a hierarchical enum, split into need / want / wander. Intents set a tangible behavioral pattern.
+
+# Actions
+
+Actions are tangible actions that units can take in order to carry out their intents.
 
 # Tolerances
 
-- we only ever need orderings to decide what to do
-- we should be able to batch the negative perceptions if necessary
-- we only ever care about the local neighborhood
+- units occasionally dying because they're stupid and wander too far from a source of food / water is probably fine
+- units only ever care about the local neighborhood
 
 # Constraints
 
+- actions must be localized, and can affect adjacent tiles
 - needs must override wants
+- units should not yo-yo between two different needs
+- failing to meet a need should have consequences. Ideally these are smooth
 
 # Key Uncertainties
 
+- what actions exist?
+- what needs exist?
+- how do we want to manage defecation?
+- how do we want to manage nutritional balance?
 - how do we manage traffic jams?
-- does making fear a need create the appropriate behavior?
-- do we need to let wants overpower current intentions before items get picked up? This is slower and fussier, but might result in more responsiveness
 - do want intents persist between needs?

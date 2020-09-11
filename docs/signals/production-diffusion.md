@@ -35,6 +35,7 @@ We modify this in the following ways:
 # Tolerances
 
 - at most tiles, actual signal value does not matter, because there is no unit or combinator there
+  - we only ever need orderings to decide what to do
 
 # Constraints
 
