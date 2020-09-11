@@ -22,13 +22,20 @@ Intents are a hierarchical enum, split into need / want / wander. Intents set a 
 
 Actions are tangible actions that units can take in order to carry out their intents.
 
-# Intents
+# Tolerances
+
+- units occasionally dying because they're stupid and wander too far from a source of food / water is probably fine
 
 # Constraints
 
 - actions must be localized, and can affect adjacent tiles
+- needs must override wants
+- units should not yo-yo between two different needs
+- failing to meet a need should have consequences. Ideally these are smooth
 
 # Key Uncertainties
 
 - what actions exist?
--
+- what needs exist?
+- how do we want to manage defecation?
+- how do we want to manage nutritional balance?
