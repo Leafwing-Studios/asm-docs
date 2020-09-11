@@ -84,3 +84,4 @@
 - how can we accommodate players with different challenge and excitement preferences?
 - how long is an ideal playthrough?
 - how long is an ideal session?
+- where can players share guides and strategies?

@@ -24,6 +24,10 @@ We modify this in the following ways:
   - this reduces issues with numerical instability and excessive computation
   - it serves no real gameplay purpose
 
+# Signals and Construction
+
+Signals disappear from a tile when diffusivity hits 0.
+
 # Tolerances
 
 - at most tiles, actual signal value does not matter, because there is no unit or combinator there

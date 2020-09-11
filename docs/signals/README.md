@@ -108,8 +108,4 @@ This enum is reused throughout the game, and updated when new strains are create
 ## Key Uncertainties
 
 - should signals actually be stored on a per-tile basis? This seems unidiomatic in ECS
-- what happens to existing signals when structures are built over them?
-- how do we avoid collisions between units who both want to enter the same tile?
-- how do we signal for a "generic" input, like "organic matter to compost" or "a worker" or "a enemy"?
-  - do we need to move away from trees for identity?
-  - is there a nice syntax for this? how does one pattern match programmatically in Rust in the first place?
+  - use external system with proxy system to access it

@@ -102,3 +102,15 @@
   - repurposing
   - gradually cannibalizing
   - resource salvaging
+- should workers collide with each other?
+  - two solutions: unit gating versus physical limitations
+    - in either case, manage worker limits by side to encourage fractal design based on optimizing surface area
+  - is this desirable mechanically?
+    - jittering and frustration?
+    - requirement to build out space
+    - physical verisimilitude'
+    - limits to number of workers at once
+      - see RTS (particularly SC2) limits on resource gathering
+  - is this feasible technologically?
+    - SC2: units only have collision when static
+    - pre-compute intents, check for conflicts, make all but one wait, prioritize based on time spent waiting
