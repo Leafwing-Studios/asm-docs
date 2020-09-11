@@ -26,9 +26,10 @@ Signals are a three-tuple of an signal type, an identity and a float that repres
 - **push:** actively attempts to remove something
   - analogous to active provider chests in Factorio
   - primarily used for zoning for negative space, or to clear construction sites
+  - push and pull signals are used together to transport goods
 - **pull:** actively attempts to grab something
   - analogous to requester chests in Factorio
-- **work:** requests worker input in a static location
+- **work:** requests workers to perform a task
   - used for calling workers over without needing them to bring a good
   - signal identity corresponds to the type of activity that needs to be performed
 

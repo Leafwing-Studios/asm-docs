@@ -25,13 +25,13 @@ Intents are recorded with a hierarchical enum, split into need / want / wander. 
 
 **Trigger:** The unit's bowels are full.
 
-**Behavior:** Pause to defecate in the current tile. This enriches the soil with nutrients. Then, reset intent.
+**Behavior:** Pause to defecate in the current tile. This enriches the soil with nutrients. Then, clear intent.
 
 #### Fear
 
 **Trigger:** The sum of negative signals in the current tile is greater than their `fear_threshold`.
 
-**Behavior:** Take the wander action, then reset intent.
+**Behavior:** Take the wander action, then clear intent.
 
 #### Hunger
 
@@ -47,6 +47,17 @@ Intents are recorded with a hierarchical enum, split into need / want / wander. 
 
 ### Wants
 
+#### Dump
+
+**Trigger:** No pull signal was found for a push signal, or an apex was reached during travel while carrying an object.
+
+**Behavior:**
+
+1. If an adjacent tile is suitable, drop the object there, then clear intent.
+2. Otherwise, wander.
+
+TODO: how are ties broken for dropping objects?
+
 #### Push
 
 **Trigger:** A push signal was selected as the highest priority want. This intent also encodes the identity of the object requested.
@@ -58,11 +69,7 @@ Intents are recorded with a hierarchical enum, split into need / want / wander. 
    2. Otherwise, travel to follow the push signal.
 2. If carrying the identified object:
    1. If a pull signal of the identified type exists, change intent to that pull signal.
-   2. Otherwise:
-      1. If adjacent suitable tile to drop the object exists, drop the object there.
-      2. Otherwise, wander.
-
-TODO: how are ties broken for dropping objects?
+   2. Otherwise, change intent to dump.
 
 #### Pull
 
@@ -92,7 +99,7 @@ TODO: how are ties broken for dropping objects?
 
 **Trigger:** No wants or needs were found.
 
-**Behavior:** Take the wander action, then reset intent.
+**Behavior:** Take the wander action, then clear intent.
 
 ## Actions
 
@@ -136,7 +143,8 @@ Determines where to move, then moves there.
 
 1. If the intent signal is stronger in the current tile than any of its neighbors:
    1. Ignore this signal for some period of time.
-   2. Reset intent.
+   2. If the unit is holding a tile, the intent changes to dump.
+   3. Otherwise, clear intent.
 2. For each adjacent, passable tile:
    1. Sum all negative perceptions and the product of the intent signal and the corresponding signal sensitivity, producing a net perception for that tile.
 3. Set the destination tile as the tile with the highest net perception.
@@ -151,7 +159,7 @@ TODO: add movement calculations.
 1. Weight each adjacent, passable tile based on their negative signals.
 2. Select one of those tiles randomly as the destination tile.
 3. Move to that tile.
-4. Reset intent.
+4. Clear intent.
 
 TODO: how exactly do negative signals get weighted?
 TODO: can we eliminate the randomness?
