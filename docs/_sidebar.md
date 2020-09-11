@@ -9,6 +9,7 @@
 - [Signals](signals/)
   - [Production and Diffusion](signals/production-diffusion.md)
   - [Decision-making](signals/decisions.md)
+  - [Movement](signals/movement.md)
 - [Interaction](interaction/)
   - [Zoning](interaction/zoning.md)
   - [Pheromones](interaction/pheromones.md)

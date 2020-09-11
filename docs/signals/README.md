@@ -7,7 +7,7 @@ Every [resource](../resources/README.md) and [organism](../organisms/README.md) 
 
 Signals are stored for each [tile](../environment/tiles.md), and then [diffuse](production-diffusion.md) to their neighbors.
 
-Units read the signals in their tile to [decide](decisions.md) their [intent](decisions.md#intents), following the gradient of that signal to eventually reach the source of the signal and then finally perform the appropriate [action](decisions.md#actions).
+Units read the signals in their tile to [decide](decisions.md) their [intent](decisions.md?id=intents), following the gradient of that signal to eventually reach the source of the signal and then finally perform the appropriate [action](decisions.md?id=actions).
 
 Players can readily adjust [signal sensitivity](sensitivity.md) on a per-strain basis to shift priorities and ensure desired unit behavior.
 
