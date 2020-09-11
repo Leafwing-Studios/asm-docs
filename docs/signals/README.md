@@ -1,3 +1,5 @@
+# Signals
+
 **Signals** are the primary method by which information is transmitted between organisms, representing scents that slowly diffuse over the landscape.
 They are intended to guide unit behavior in a scalable fashion by providing a framework for both path finding and decision making that avoids repeated work.
 
@@ -11,7 +13,7 @@ Players can readily adjust [signal sensitivity](sensitivity.md) on a per-strain 
 
 Players can examine the signals present in an area through various [analytics](../ui/analytics.md).
 
-# Data structure
+## Data structure
 
 Signals are a three-tuple of an signal type, an identity and a float that represents the amount of signal present.
 
@@ -32,9 +34,9 @@ Signals are a three-tuple of an signal type, an identity and a float that repres
 **Identity** is stored in a hierarchical [non-exhaustive](https://doc.rust-lang.org/reference/attributes/type_system.html) enum, providing an organization for players to understand the complex array of objects available.
 This enum is reused throughout the game, and updated when new strains are created.
 
-# Standard use cases
+## Standard use cases
 
-## Keeping a tile clear
+### Keeping a tile clear
 
 1. The player zones a tile as clear.
 2. Something occurs that causes the tile contents to be non-empty.
@@ -49,7 +51,7 @@ This enum is reused throughout the game, and updated when new strains are create
    2. If none can be found, they change their intent to "dump".
       1. While their intent is dump, they wander until they find a tile that can accept the object they are holding.
 
-## Creating a new structure
+### Creating a new structure
 
 1. The player zones a tile with the structure.
    1. The player can zone more tiles, increasing signal strength and thus the amount of workers that attempt to bring material.
@@ -71,37 +73,37 @@ This enum is reused throughout the game, and updated when new strains are create
 11. If other emitters exist nearby, they will deposit their object near there instead.
 12. If the apex is reached with no available action, their intent changes to the corresponding pull if one exists, otherwise, dump.
 
-## Repairing a structure
+### Repairing a structure
 
 1. The player zones a tile with the structure.
 2. The structure is damaged.
 3. The zoning signal strengthens based on the amount of mass missing.
 4. Replacement material / organisms are fetched, following _Creating a New Structure_ above.
 
-## Fetching an ingredient
+### Fetching an ingredient
 
 1. The structure requests the ingredient and signal build-up occurs.
 2. A unit sets its intent to the appropriate ingredient.
 3. The unit fetches the ingredient, following the pull activity, as outlined in _Creating a New Structure_ above.
 
-## Storing processed goods
+### Storing processed goods
 
 1. Either:
    1. The structure provides a push signal. Goods are taken away and stored wherever possible.
    2. The structure provides a passive signal. Goods are taken away when a pull signal exists.
 
-## Work is needed
+### Work is needed
 
 1. Signal build-up occurs.
 2. Workers are summoned.
 3. Workers occupy adjacent tiles, performing work on the structure, until a need is met or the work emitter stops.
 
-# Constraints
+## Constraints
 
 - signal intensity needs high granularity to allow for gradual resource build-ups
 - signal intensity must be continuous to avoid ties
 
-# Key Uncertainties
+## Key Uncertainties
 
 - should signals actually be stored on a per-tile basis? This seems unidiomatic in ECS
 - what happens to existing signals when structures are built over them?
