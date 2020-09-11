@@ -1,3 +1,5 @@
+# Decisions
+
 Every time step, each unit without an intent chooses one according to the following algorithm:
 
 1. If the unit's intent is already a need, break.
@@ -11,39 +13,41 @@ Every time step, each unit without an intent chooses one according to the follow
 
 Once an intent has been determined, the intent persists until overridden or removed as part of the intent logic.
 
-# Intents
+## Intents
 
-Intents are a hierarchical enum, split into need / want / wander. Intents set a tangible behavioral pattern.
+Intents contain a simple control flow, always terminating with exactly one action for the time step.
 
-## Needs
+Intents are recorded with a hierarchical enum, split into need / want / wander. Intents set a tangible behavioral pattern that help the unit resolve the signal that caused them to occur.
 
-### Defecation
+### Needs
+
+#### Defecation
 
 **Trigger:** The unit's bowels are full.
 
 **Behavior:** Pause to defecate in the current tile. This enriches the soil with nutrients. Then, reset intent.
 
-### Fear
+#### Fear
 
 **Trigger:** The sum of negative signals in the current tile is greater than their `fear_threshold`.
 
 **Behavior:** Take the wander action, then reset intent.
 
-### Hunger
+#### Hunger
 
 **Trigger:** The unit's energy has fallen below their `hunger_threshold`.
 
 **Behavior:** If carrying food, eat. If adjacent to food, lift it. Otherwise, travel following the strongest (weighted) passive food signal.
 
-### Thirst
+#### Thirst
 
 **Trigger:** The unit's water has fallen below their `thirst_threshold`.
 
 **Behavior:** If carrying food, eat. If adjacent to food, lift it. Otherwise, travel following the strongest (weighted) passive water signal.
 
-## Wants
+### Wants
 
-### Push
+#### Push
 
 **Trigger:** A push signal was selected as the highest priority want. This intent also encodes the identity of the object requested.
 
@@ -60,7 +64,7 @@ Intents are a hierarchical enum, split into need / want / wander. Intents set a 
 
 TODO: how are ties broken for dropping objects?
 
-### Pull
+#### Pull
 
 **Trigger:** A pull signal was selected as the highest priority want.
 
@@ -75,7 +79,7 @@ TODO: how are ties broken for dropping objects?
    1. If adjacent to a corresponding pull emitter, drop the object on the strongest emitter.
    2. Otherwise, travel to follow the pull signal.
 
-### Work
+#### Work
 
 **Trigger:** A work signal was selected as the highest priority want.
 
@@ -84,49 +88,49 @@ TODO: how are ties broken for dropping objects?
 1. If adjacent to a corresponding work emitter, take the craft action.
 2. Otherwise, travel to follow the work signal.
 
-## Wandering
+### Wandering
 
 **Trigger:** No wants or needs were found.
 
 **Behavior:** Take the wander action, then reset intent.
 
-# Actions
+## Actions
 
 Actions are tangible actions that units can take in order to carry out their intents.
 
 Every action has an associated energy cost (which may be 0) and time cost (which cannot be 0).
 
-## Craft
+### Craft
 
 Performs work at an adjacent matching structure.
 
-## Defecate
+### Defecate
 
 TODO: add defecation mechanics.
 
-## Drop
+### Drop
 
 Place the currently carried object in an adjacent tile.
 The tile must either be empty, set up to receive an input of the appropriate type, or already contain the same sort of object.
 
-## Eat
+### Eat
 
 Consumes the currently held object.
 
 TODO: add food mechanics.
 
-## Fight
+### Fight
 
 TODO: add combat mechanics.
 
-## Lift
+### Lift
 
 Picks up the desired object from an adjacent tile.
 
 For piles and structures, breaks off an amount of mass equal to the `LiftingCapacity` of the unit.
 If there is not enough mass available, all remaining mass is taken and the tile is set to empty.
 
-## Travel
+### Travel
 
 Determines where to move, then moves there.
 
@@ -142,7 +146,7 @@ TODO: how long are signals ignored for?
 
 TODO: add movement calculations.
 
-## Wander
+### Wander
 
 1. Weight each adjacent, passable tile based on their negative signals.
 2. Select one of those tiles randomly as the destination tile.
@@ -152,19 +156,19 @@ TODO: add movement calculations.
 TODO: how exactly do negative signals get weighted?
 TODO: can we eliminate the randomness?
 
-# Tolerances
+## Tolerances
 
 - units occasionally dying because they're stupid and wander too far from a source of food / water is probably fine
 - units only ever care about the local neighborhood
 
-# Constraints
+## Constraints
 
 - actions must be localized, and can affect adjacent tiles
 - needs must override wants
 - units should not yo-yo between two different needs
 - failing to meet a need should have consequences. Ideally these are smooth
 
-# Key Uncertainties
+## Key Uncertainties
 
 - how do we manage traffic jams?'
   - is a negative attraction to other units adequate?

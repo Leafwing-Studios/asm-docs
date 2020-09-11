@@ -1,13 +1,13 @@
 # Signals
 
 **Signals** are the primary method by which information is transmitted between organisms, representing scents that slowly diffuse over the landscape.
-They are intended to guide unit behavior in a scalable fashion by providing a framework for both path finding and decision making that avoids repeated work.
+They are intended to guide unit behavior in a scalable fashion by providing a framework for both pathfinding and decision making that avoids repeated work.
 
 Every [resource](../resources/README.md) and [organism](../organisms/README.md) [produces](production-diffusion.md) a signal, allowing [units](../organisms/units.md) and [combinators](../organisms/combinators.md) to sense the environment around them.
 
 Signals are stored for each [tile](../environment/tiles.md), and then [diffuse](production-diffusion.md) to their neighbors.
 
-Units read the signals in their tile to [decide](decisions.md) their [intent](activities-actions-intents.md), perform the corresponding [activity](activities-actions-intents.md), follow the gradient of that signal to eventually reach the source of the signal and then finally perform the appropriate [action](activities-actions-intents.md).
+Units read the signals in their tile to [decide](decisions.md) their [intent](decisions.md#intents), following the gradient of that signal to eventually reach the source of the signal and then finally perform the appropriate [action](decisions.md#actions).
 
 Players can readily adjust [signal sensitivity](sensitivity.md) on a per-strain basis to shift priorities and ensure desired unit behavior.
 

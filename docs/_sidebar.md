@@ -7,7 +7,7 @@
 - [Strategy](strategy/)
   - [Progression](strategy/progression.md)
 - [Signals](signals/)
-  - [Production and Diffusion](signals/diffusion.md)
+  - [Production and Diffusion](signals/production-diffusion.md)
   - [Decision-making](signals/decisions.md)
 - [Interaction](interaction/)
   - [Zoning](interaction/zoning.md)
