@@ -1,6 +1,6 @@
 The behavior of units when they move between tiles is worth examining in detail.
 
-# Movement with collision
+# Movement with collision [rejected- hard mechanical constraints and techincal problems]
 
 Units **move** when they take either the [travel](decisions.md?id=travel) or [wander](decisions.md?id=wander) actions.
 
@@ -31,7 +31,21 @@ Proposed movement with collision algorithm:
   - **Quantized:** Units travel between tiles directly, always occupy a number (and shape) equal to their size.
   - **Variable:** Not all units travel at the same rate, and not all tiles take the same speed to cross.
   - **Signal-driven:** Units have no need for explicit pathfinding: they merely need to follow local signal gradients.
+- requires additional checks on movement to avoid running into friends
+- requires storing or broadcasting travel time between units (which may be variable)
+- in ECS, the tilemap is probably going to be proxied, and this requires lots of read/write to that proxy system (or a copy of it)
+- this imposes mechanical constraints:
+  - reinforcing loop: systems are worker limited, and it's possible to get systems which can't fit all the workers they need. workers continue to pour in to serve the need, boxing in the ones who have completed the task (but not all the way). this continues until all the drones die.
+  - noob trap: systems require relatively wide roads to move units around, but it's easy to build a large colony without doing this and screw your supply lines later on
+  - prevents more interesting layouts for production facilities (tight fractals are impossible, so lines become more optimal)
+  - fails to deliver on part of the fantasy: drones wait in patient lines, and trickle around slowly instead of chaotically whizzing back and forth
+  - units feel more clunky than they are because they get stuck on each other
+  
+# Desired Properties
+- Units should feel like the interact with each other. Factorio bots fail at this because they don't care about each other basically at all.
 
 # Key uncertainties
 
 - do we _want_ collisions between units for gameplay reasons?
+- if we don't use unit collision, how do we ensure units don't "clump" too much? (We want to avoid this for clarity and reality reasons.)
+- without hard collision, how to we incentivize wider paths for supply lines (ideally a bit softer)
