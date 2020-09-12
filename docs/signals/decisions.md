@@ -155,7 +155,7 @@ Determines where to move, then moves there.
 
 1. If the intent signal is stronger in the current tile than any of its neighbors:
    1. Ignore this signal for some period of time.
-   2. If the unit is holding a tile, the intent changes to dump.
+   2. If the unit is holding an object, the intent changes to dump.
    3. Otherwise, clear intent.
 2. For each adjacent, passable tile:
    1. Sum all negative perceptions and the product of the intent signal and the corresponding signal sensitivity, producing a net perception for that tile.
@@ -202,3 +202,4 @@ TODO: can we eliminate the randomness?
   - creates automatic stampede when crowded due to negative response to other units
 - How should we ensure the decision subroutine runs only when the action has finished? (System clock, callbacks, messages, etc.)
 - I feel like the current intent system is more complicated than it needs to be. The intents are useful because they can specify arbitrary chains, which is elegant and clear. However, I can't shake the feeling that we have more logic levels than needed. Better tech for handling interrupts may be the best way forward.
+- Decision making (in Travel was where this came up) should not be performing gradient sums? Should this be handled when computing the gradient instead?
