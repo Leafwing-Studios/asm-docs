@@ -177,6 +177,8 @@ TODO: add food mechanics.
 
 Emit fear signal, then immediately perform the wander action.
 
+TODO: probably subtypes the wander action.
+
 ### Fight
 
 TODO: add combat mechanics.
@@ -197,7 +199,7 @@ Determines where to move, then moves there.
    2. If the unit is holding an object, the intent changes to dump.
    3. Otherwise, clear intent.
 2. For each adjacent, passable tile:
-   1. Sum all negative perceptions and the product of the intent signal and the corresponding signal sensitivity, producing a net perception for that tile.
+   1. Add the strain-specific negative perception of a tile and the product of the intent signal and the corresponding signal sensitivity, producing a net perception for that tile.
 3. Set the destination tile as the tile with the highest net perception.
 4. Move to the destination tile.
 
@@ -245,7 +247,6 @@ TODO: can we eliminate the randomness?
 - should units stampede? Emerges from the fear signal production while in the fear intent
   - creates automatic stampede when crowded due to negative response to other units
 - How should we ensure the decision subroutine runs only when the action has finished? (System clock, callbacks, messages, etc.)
-- Decision making (in Travel was where this came up) should not be performing gradient sums? Should this be handled when computing the gradient instead?
 - how do we handle conflicting actions?
   - this is particularly bad when the actions occur in the same phase: e.g. picking up or putting down an object in the same tile
   - this is the same problem, from a technical perspective, as collision detection

@@ -24,6 +24,14 @@ We modify this in the following ways:
   - this reduces issues with numerical instability and excessive computation
   - it serves no real gameplay purpose
 
+# Negative perceptions
+
+After we diffuse signals, compute the strain-specific negative perception for each signal, by summing the product of all negative signal sensitivities and the corresponding signals.
+
+As a performance optimization, we can filter for tiles that are currently near units of that strain.
+
+This is used repeatedly, when checking for the `fear` need, and in the `travel` and `wander` strain, so is probably worth precomputing.
+
 # Signals and Construction
 
 Signals disappear from a tile when diffusivity hits 0.
