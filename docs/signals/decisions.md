@@ -2,7 +2,7 @@
 
 # The basics of unit behavior
 
-Every time step, each unit who is not currently taking an action completes their previous action, chooses and then begins an action.
+Every time step, each unit who is not currently taking an action completes their previous action, chooses a new action and then begins that action.
 
 1. For each unit at each time step:
    1. If the matching `ActionTime` field is less than or equal to the current time, they may act during this time step.
