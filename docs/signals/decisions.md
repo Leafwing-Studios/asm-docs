@@ -219,7 +219,10 @@ This is used for the `think` intent, to allow for better memory properties.
 
 ### Wander
 
-1. Weight each adjacent, passable tile based on their negative signals.
+1. Weight each adjacent, passable tile based on their `negative_perception`.
+   1. A higher negative perception always results in a lower chance of selection: the weights must monotonically decrease with negative perception.
+   2. Proportional scaling does not matter, as weights get renormalized to 1 anyways.
+   3. `weight = 1 / negative_perceptions` is a sensible formula to start.
 2. Select one of those tiles randomly as the destination tile.
 3. Move to that tile.
 4. Clear intent.
