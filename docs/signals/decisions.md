@@ -1,35 +1,37 @@
 # Decisions
 
-# The basics of unit behavior
+## The basics of unit behavior
 
+<<<<<<< Updated upstream
 Every time step, each unit who is not currently taking an action completes their previous action, chooses a new action, and then begins that action.
+=======
+Units follow the following core AI loop for all their behavior. The first step "Finish current action" can be done either by comparing to the system clock or using asynchronous methods (see Key Uncertainties).
+>>>>>>> Stashed changes
 
-1. For each unit at each time step:
-   1. If the matching `ActionTime` field is less than or equal to the current time, they may act during this time step.
-      1. Complete their `CurrentAction`.
-      2. Determine their intent, below.
-      3. Set `CurrentAction` to the action specified by that intent.
-      4. Subtract energy based on the `EnergyCost` of the action.
-      5. Set `ActionTime` equal to the current time plus the `TimeCost` of the action.
+1. Finish current action
+1. If your current intent is not a need, check needs in deterministic order. If any are pressing, drop your current intent and switch to that need. Store the original next intent so you can go back to it after your needs are taken care of. Break.
+1. Follow the “next” intent from your finished intent (this may be itself). Keep in mind the two special cases:
+  - If the action had a “previous” next, switch to the intent that you saved.
+  - If the action had a “break” next, determine your next intent. Compare the weighted signal strengths in your current tile, then pick the highest one.
+1. Follow the intent's internal control flow to determine your next action.
+
+<div class="infobox">
+
+**Everything is More Complicated Than You Think**
+
+This AI logic has a lot of weird nuance to it that we're not trying to nail down exactly right now. A list of things to keep in mind later:
+- If you get two needs in a row, you must still return to your original want. You should be remembering the chain from wants, not needs.
+- Needs should not interrupt each other, but they should be able to chain. For example, you can switch to a different need after your current need has finished, but you can interrupt a want chain with a need (even if it is not complete).
+
+</div>
 
 ## Intents
 
-Every time step, each unit that is not action chooses an intent according to the following algorithm:
+Intents are chosen by the signals received (and occasionally the internal state), and then set a tangible behavioral pattern that help the unit resolve the signal that caused them to occur. Once an intent has been determined, the intent persists until overridden or until the action returned is completed. While intents often contain an internal control structure and loop on themselves, their runtime behavior is a list of actions completed in order. When that list is finished, they may specify another intent to chain to, for yet more actions.
 
-1. If the unit's intent is already a need, break.
-2. Check each need in a deterministic order.
-   1. If a need is pressing, set intent to that need and break.
-3. If the unit is already carrying an object, break.
-4. Compare wants.
-   1. Compute preferences as the product of each push / pull signal in the current tile by the unit's corresponding signal sensitivity.
-   2. Set intent to the highest preference and break.
-5. If no wants were found, set the intention to wander.
+Intents are pure functions that take in the local environment (but not signals) and return a `(action, next_intent)` tuple. Intents do not operate on signals, as that logic is performed when choosing the intent. The `next_intent` field indicates which intent should come next, if any. They can specify themselves, or the previous intent (although this should be reserved only for interrupts, like needs). Finally, they can also default to the regular intent logic by specifying `break`.
 
-Once an intent has been determined, the intent persists until overridden or removed as part of the intent logic.
-
-Intents contain a simple control flow, always terminating with exactly one action for the time step.
-
-Intents are recorded with a hierarchical enum, split into need / want / wander. Intents set a tangible behavioral pattern that help the unit resolve the signal that caused them to occur.
+Intents are recorded with a hierarchical enum. The top level is split into **need, want,** and **wander.** All intents fall into one of these categories for a total of two levels.
 
 ### Needs
 
@@ -202,3 +204,5 @@ TODO: can we eliminate the randomness?
 - matching push / pull will always be prioritized over passive, is this what we want?
 - should units stampede? Emerges from the fear signal production while in the fear intent
   - creates automatic stampede when crowded due to negative response to other units
+- How should we ensure the decision subroutine runs only when the action has finished? (System clock, callbacks, messages, etc.)
+- I feel like the current intent system is more complicated than it needs to be. The intents are useful because they can specify arbitrary chains, which is elegant and clear. However, I can't shake the feeling that we have more logic levels than needed. Better tech for handling interrupts may be the best way forward.
