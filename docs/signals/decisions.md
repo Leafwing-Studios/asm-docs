@@ -2,11 +2,7 @@
 
 ## The basics of unit behavior
 
-<<<<<<< Updated upstream
-Every time step, each unit who is not currently taking an action completes their previous action, chooses a new action, and then begins that action.
-=======
 Units follow the following core AI loop for all their behavior. The first step "Finish current action" can be done either by comparing to the system clock or using asynchronous methods (see Key Uncertainties).
->>>>>>> Stashed changes
 
 1. Finish current action
 1. If your current intent is not a need, check needs in deterministic order. If any are pressing, drop your current intent and switch to that need. Store the original next intent so you can go back to it after your needs are taken care of. Break.
