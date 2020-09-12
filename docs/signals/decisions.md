@@ -1,6 +1,20 @@
 # Decisions
 
-Every time step, each unit chooses one according to the following algorithm:
+# The basics of unit behavior
+
+Every time step, each unit who is not currently taking an action completes their previous action, chooses and then begins an action.
+
+1. For each unit at each time step:
+   1. If the matching `ActionTime` field is less than or equal to the current time, they may act during this time step.
+      1. Complete their `CurrentAction`.
+      2. Determine their intent, below.
+      3. Set `CurrentAction` to the action specified by that intent.
+      4. Subtract energy based on the `EnergyCost` of the action.
+      5. Set `ActionTime` equal to the current time plus the `TimeCost` of the action.
+
+## Intents
+
+Every time step, each unit that is not action chooses an intent according to the following algorithm:
 
 1. If the unit's intent is already a need, break.
 2. Check each need in a deterministic order.
@@ -12,8 +26,6 @@ Every time step, each unit chooses one according to the following algorithm:
 5. If no wants were found, set the intention to wander.
 
 Once an intent has been determined, the intent persists until overridden or removed as part of the intent logic.
-
-## Intents
 
 Intents contain a simple control flow, always terminating with exactly one action for the time step.
 
@@ -31,7 +43,7 @@ Intents are recorded with a hierarchical enum, split into need / want / wander. 
 
 **Trigger:** The sum of negative signals in the current tile is greater than their `fear_threshold`.
 
-**Behavior:** Take the wander action, then clear intent.
+**Behavior:** Produce fear signal, take the wander action, then clear intent.
 
 #### Hunger
 
@@ -156,6 +168,10 @@ TODO: how long are signals ignored for?
 
 TODO: add movement calculations.
 
+### Wait
+
+Do nothing for the specified time period. Record how long you've been waiting. Whenever a different action completes, reset this time to 0.
+
 ### Wander
 
 1. Weight each adjacent, passable tile based on their negative signals.
@@ -184,3 +200,5 @@ TODO: can we eliminate the randomness?
   - is a negative attraction to other units adequate?
 - do want intents persist between needs?
 - matching push / pull will always be prioritized over passive, is this what we want?
+- should units stampede? Emerges from the fear signal production while in the fear intent
+  - creates automatic stampede when crowded due to negative response to other units
