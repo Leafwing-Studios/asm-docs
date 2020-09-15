@@ -1,3 +1,8 @@
-# Constraints
+## Desired Properties
 
-# Key Uncertainties
+- FNEI-system for looking up and discovering more efficient recipes
+-
+
+## Constraints
+
+## Key Uncertainties

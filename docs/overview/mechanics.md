@@ -104,3 +104,10 @@
   - resource salvaging
 - work should never be hard-limited by worker rate (e.g. number of workers at a machine)
   - otherwise, signal production keeps growing but the problem doesn't get fixed
+- how 3D are things?
+  - waterways? yes
+  - combat? maybe
+  - climbing walls? no
+  - energy costs? maybe
+  - beetle speed? no, competes with waterway
+  - underground tunnels? maybe
