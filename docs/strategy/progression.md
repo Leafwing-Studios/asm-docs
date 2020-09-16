@@ -147,6 +147,22 @@ Relics can be combined to produce interesting new game modes.
 
 ## Strange Environment Tiers??
 
+## Waterways
+
+- water boatmen that carry rafts
+- aquatic insects
+- aquatic plants
+
+## Spiders
+
+- capturing is hard; must subdue dangerous foe
+- strictly carnivorous; feasts on your own workers
+  - create docile food strain that is not scared of the spiders
+- spins webs
+  - use for defense
+  - create bridges
+  - gather as a raw resource
+
 ## Key Uncertainties
 
 - what intermediate resources exist?
