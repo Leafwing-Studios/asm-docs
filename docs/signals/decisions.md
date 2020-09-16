@@ -63,7 +63,7 @@ Attempting to act immediately will result in accessing tiny amounts of memory in
 
 **Trigger:** The sum of negative signals in the current tile is greater than their `fear_threshold`.
 
-**Behavior:** Return (`flee`, `previous_want`).
+**Behavior:** Return (`hun`, `previous_want`).
 
 #### Hunger
 

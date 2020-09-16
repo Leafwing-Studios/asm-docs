@@ -1,3 +1,13 @@
+# Structures
+
+## Species Breakdown
+
+## Common Behavior
+
+### Plant Behavior
+
+### Fungal Behavior
+
 # Structure uses
 
 - nutrient cycle
