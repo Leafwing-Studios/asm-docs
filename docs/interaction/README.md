@@ -18,12 +18,15 @@ There are several ways for the players to observe and interact with the world, s
 
 ## Information Gathering
 
+- [alerts](alerts.md)
 - [object inspection](inspection.md)
 - [informational overlay](overlay.md)
   - signals
   - environmental data
   - all zoning
 - [map](map.md)
+  - pan
+  - zoom
 
 ## Planning
 

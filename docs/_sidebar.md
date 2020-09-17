@@ -14,6 +14,7 @@
   - [Pheromones](interaction/pheromones.md)
   - [Zoning](interaction/zoning.md)
   - [Signal Sensitivity](interaction/sensitivity.md)
+  - [Alerts](interaction/alerts.md)
   - [Object Inspection](interaction/inspection.md)
   - [Informational Overlay](interaction/overlay.md)
   - [Map](interaction/map.md)
