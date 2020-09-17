@@ -22,6 +22,7 @@
   - [Achievements](interaction/achievements.md)
   - [Production Statistics](interaction/production-statistics.md)
   - [Recipe Browser](interaction/recipe-browser.md)
+  - [Time Control](interaction/time-control.md)
 - [Environment](environment/)
   - [Tiles](environment/tiles.md)
   - [Light](environment/light.md)

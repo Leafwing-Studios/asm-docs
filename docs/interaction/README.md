@@ -35,6 +35,11 @@ There are several ways for the players to observe and interact with the world, s
 - [production statistics](production-statistics.md)
 - [recipe browser](recipe-browser.md)
 
+## Meta
+
+- [time controls](time-controls.md)
+  - play / pause / fast-forward
+
 ## Constraints
 
 ## Key Uncertainties
