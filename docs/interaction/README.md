@@ -1,6 +1,39 @@
-There are several ways for the player to interact with the world:
+# User Interaction
 
-- applying [pheromones](pheromones.md)
-- setting [zoning](zoning.md)
-- improving [genetics](genetics.md)
-- tweaking [signal sensitivity](sensitivity.md)
+There are several ways for the players to observe and interact with the world, summarized below.
+
+## Core Interaction
+
+- [pheromones](pheromones.md)
+- [zoning](zoning.md)
+  - set zoning strength
+  - direct placement
+  - pipette
+  - clear cursor
+  - blueprints
+    - deconstruct
+    - cut, copy, paste
+    - blueprint
+- changing [signal sensitivity](sensitivity.md)
+
+## Information Gathering
+
+- [object inspection](inspection.md)
+- [informational overlay](overlay.md)
+  - signals
+  - environmental data
+  - all zoning
+- [map](map.md)
+
+## Planning
+
+- [genetic research](genetics.md)
+- [achievements](achievements.md)
+- [production statistics](production-statistics.md)
+- [recipe browser](recipe-browser.md)
+
+## Constraints
+
+## Key Uncertainties
+
+- how do we want to handle resolution scaling?
