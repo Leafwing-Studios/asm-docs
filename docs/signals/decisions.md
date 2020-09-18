@@ -253,3 +253,7 @@ TODO: can we eliminate the randomness?
 - how do we handle conflicting actions?
   - this is particularly bad when the actions occur in the same phase: e.g. picking up or putting down an object in the same tile
   - this is the same problem, from a technical perspective, as collision detection
+- should we have flying units? how do they work?
+  - ignores terrain
+  - detects signals in a short radius
+  - flies directly to those new signals
