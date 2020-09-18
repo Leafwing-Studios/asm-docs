@@ -19,7 +19,7 @@
   - [Informational Overlay](interaction/overlay.md)
   - [Map](interaction/map.md)
   - [Genetic Research](interaction/genetics.md)
-  - [Achievements](interaction/achievements.md)
+  - [Milestones](interaction/milestones.md)
   - [Production Statistics](interaction/production-statistics.md)
   - [Recipe Browser](interaction/recipe-browser.md)
   - [Time Control](interaction/time-control.md)

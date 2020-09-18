@@ -31,7 +31,7 @@ There are several ways for the players to observe and interact with the world, s
 ## Planning
 
 - [genetic research](genetics.md)
-- [achievements](achievements.md)
+- [milestones](milestones.md)
 - [production statistics](production-statistics.md)
 - [recipe browser](recipe-browser.md)
 
