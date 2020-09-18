@@ -1,14 +1,29 @@
+# Pheromones
+
 Pheromones are the player's primary tool for interacting quickly with the world.
 
-Select a pheromone, then click over a tile to use it, depleting your regenerating supply of pheromones.
+Select a pheromone using the ping wheel, then click over a tile to use it, depleting your regenerating supply of pheromones.
 
-# Types of pheromones
+## Agency
 
-# COME
+Pheromones use a resource called **agency**, which is slowly and automatically produced over time.
+The purpose of agency is to gate and manage the amount of micromanaging that the player must perform.
 
-Creates a powerful universal signal for your own units. Once they reach the peak of the signal, they switch to other tasks?
+You can increase your agency production and cap and unlock new pheromone options by completing [milestones](milestones.md).
 
-# AMPLIFY
+You can spend agency to:
+
+- use pheromones
+- change [signal sensitivity / production](sensitivity.md) of a strain
+- slowly produce organisms from a species of your choice at a [research site](genetics.md)
+
+## Types of pheromones
+
+### COME
+
+Creates a powerful universal signal for your own units. Once they reach the peak of the signal, they ignore the signal for a while.
+
+### AMPLIFY
 
 Amplifies the existing signals that are being produced by the tile in question.
 
@@ -19,6 +34,10 @@ Increases the production rate of a structure, or the productivity of a worker. D
 # FIGHT
 
 Increases the recklessness and buffs the combat effectiveness of your organisms. Diffuses over time.
+
+# DIFFERENTIATE
+
+Controls the type of unit produced by eggs.
 
 # Tolerances
 
@@ -36,12 +55,9 @@ Increases the recklessness and buffs the combat effectiveness of your organisms.
 # Key Uncertainties
 
 - what pheromones do we want to exist?
-- what resources are used to make pheromones, if any?
 - how can you customize your pheromone production?
-- does pheromone production need to scale as you play the game?
 - thematically, why can you use these anywhere instantly?
 - time windows
   - time to full capacity
   - time to exhausted when spamming from full capacity
-- in the late game, should you be able to automate pheromone usage?
-- should you be forced to spend pheromones to adjust signal sensitivity? Similar sort of puzzle
+- should you be forced to spend pheromones to adjust signal sensitivity? Similar sort of action
