@@ -42,5 +42,3 @@
   - [Structures](organisms/structures.md)
     - [Combinators](organisms/combinators.md)
   - [Units](organisms/units.md)
-  - [Domestication](organisms/domestication.md)
-  - [Genetics](organisms/genetics.md)
