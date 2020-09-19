@@ -7,7 +7,6 @@ Borrow heavily from Factorio's production statistics.
 - comprehensive
 - shows production over time
 - displays the same information as [overlay](overlay.md) and is closely integrated
--
 
 ## Constraints
 
