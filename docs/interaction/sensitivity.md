@@ -17,6 +17,6 @@
 - sensitivity needs to be easily tuned to allow for debugging problematic behavior
 - constantly changing sensitivities should not be a viable strategy for micro
 
-## Key Uncertainties
+## Uncertainties
 
 - how do you change sensitivities from a UI perspective?

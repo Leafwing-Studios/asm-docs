@@ -84,7 +84,7 @@
 - signal preferences must be able to be quickly changed and debugged
   - orthogonal to genetic evolution
 
-# Key uncertainties
+# Uncertainties
 
 - is signal-driven control usable and fun?
 - how do we make sure the game feels responsive?

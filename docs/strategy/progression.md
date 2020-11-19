@@ -163,7 +163,7 @@ Relics can be combined to produce interesting new game modes.
   - create bridges
   - gather as a raw resource
 
-## Key Uncertainties
+## Uncertainties
 
 - what intermediate resources exist?
 - what cool things can you make that require more complex resources?

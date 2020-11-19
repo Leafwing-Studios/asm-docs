@@ -4,7 +4,7 @@
 
 ## Constraints
 
-## Key Uncertainties
+## Uncertainties
 
 - how large are tiles relative to units?
 - how do we handle units that are larger than a tile?

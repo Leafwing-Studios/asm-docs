@@ -1,6 +1,6 @@
 ## Constraints
 
-## Key Uncertainties
+## Uncertainties
 
 - how can we present and manipulate this in a comprehensible fashion
 - are we using weak 3D or 2.5D?

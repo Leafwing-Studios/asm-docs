@@ -22,7 +22,7 @@
 
 ## Constraints
 
-## Key Uncertainties
+## Uncertainties
 
 - can we meaningfully display more than one dimension at once?
 - can we scale this up to a full map with reasonable performance?

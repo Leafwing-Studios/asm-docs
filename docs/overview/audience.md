@@ -77,7 +77,7 @@
   - Sim City
   - Sim Ant
 
-# Key uncertainties
+# Uncertainties
 
 - does our target audience care about mechanical execution challenge?
 - how important is transferability of save files across versions?

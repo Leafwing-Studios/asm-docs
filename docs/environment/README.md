@@ -2,7 +2,7 @@
 
 ## Constraints
 
-## Key Uncertainties
+## Uncertainties
 
 - what interesting environmental variation do we have?
   - tides?

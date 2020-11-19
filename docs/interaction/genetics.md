@@ -20,7 +20,7 @@
   - should this be tied to certain types of genetic resources? Interesting cross-breeding potential!
 - organisms should get better over time
 
-## Key Uncertainties
+## Uncertainties
 
 - how do we balance splitting early vs later?
 - how do we balance specialists vs generalists?

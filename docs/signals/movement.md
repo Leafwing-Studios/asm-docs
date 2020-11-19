@@ -8,6 +8,6 @@ The behavior of units when they move between tiles is worth examining in detail.
 - can be executed concurrently
 - Units should feel like the interact with each other. Factorio bots fail at this because they don't care about each other basically at all.
 
-# Key uncertainties
+# Uncertainties
 - if we don't use unit collision, how do we ensure units don't "clump" too much? (We want to avoid this for clarity and reality reasons.)
 - without hard collision, how to we incentivize wider paths for supply lines (ideally a bit softer)

@@ -22,7 +22,7 @@
 - must be able to zone tiles as clear to allow for walking paths
 - ergonomics must be good: cut, copy, paste, clear are critical
 
-## Key uncertainties
+## Uncertainties
 
 - should structures automatically work like buffer chests?
 - do we ant buffer zoning? useful for slowly passing goods down a line

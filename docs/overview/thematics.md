@@ -74,7 +74,7 @@ The player _is_ the factory hivemind. They control a broad faction of evolved in
 - no brutal violence
 - environmental storytelling only
 
-# Key Uncertainties
+# Uncertainties
 
 - what art style are we looking for?
 - how are units animated?

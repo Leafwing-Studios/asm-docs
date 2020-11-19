@@ -10,7 +10,7 @@ Borrow heavily from Factorio's production statistics.
 
 ## Constraints
 
-## Key Uncertainties
+## Uncertainties
 
 - how do we organize the information in a comprehensible fashion?
   - searching through

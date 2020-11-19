@@ -59,7 +59,7 @@ Signals disappear from a tile when diffusivity hits 0.
 - signal intensity should not have waves: this limits the order of the partial differential equation used
 - signal intensity should not have checker-board artifacts: this may limit our discretization approach
 
-# Key Uncertainties
+# Uncertainties
 
 - how often do signal emitters need to tick?
 - do we need to incorporate fancier discretization schemes in order to avoid artifacts?

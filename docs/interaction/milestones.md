@@ -17,4 +17,4 @@ When you complete a milestone, your [pheromone](pheromones.md) capacity increase
 - cannot be linearly gated, as this leads to really stale gameplay
 - must reset between games to remind players of goals and create progress
 
-## Key Uncertainties
+## Uncertainties

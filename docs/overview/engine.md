@@ -37,7 +37,7 @@ TODO: add table based on market research.
 - weak visual art skills
 - weak music and sound design skills
 
-# Key Uncertainties
+# Uncertainties
 
 - what specs are we targeting?
 - how do we want to handle graphics?

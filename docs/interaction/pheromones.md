@@ -52,7 +52,7 @@ Controls the type of unit produced by eggs.
 - pheromones should not be magic: they must rely on existing organisms to do their work
 - all pheromones target a single tile for UI consistency
 
-# Key Uncertainties
+# Uncertainties
 
 - what pheromones do we want to exist?
 - how can you customize your pheromone production?

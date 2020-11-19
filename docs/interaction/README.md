@@ -42,6 +42,6 @@ There are several ways for the players to observe and interact with the world, s
 
 ## Constraints
 
-## Key Uncertainties
+## Uncertainties
 
 - how do we want to handle resolution scaling?

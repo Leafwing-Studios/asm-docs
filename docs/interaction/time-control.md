@@ -4,7 +4,7 @@ Speed up, pause and resume time.
 
 ## Constraints
 
-## Key Uncertainties
+## Uncertainties
 
 - does including this cause gameplay issues?
 - do we really need this over basic pausing functionality?

@@ -7,7 +7,7 @@
 
 ## Constraints
 
-## Key Uncertainties
+## Uncertainties
 
 - what are these made out of?
 - are they set up at an individual or strain level?

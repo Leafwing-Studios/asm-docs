@@ -12,7 +12,7 @@
 
 - limited color differentiation
 
-## Key Uncertainties
+## Uncertainties
 
 - is there a way for us to detect historical problem areas at a whole-base level using the map?
 - can we feasibly compute the various overlay filters at the map level?

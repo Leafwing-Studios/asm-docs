@@ -13,7 +13,7 @@
   - continuity is much more important, and much harder, so we can't afford hard chunk edges
 - need a burn-in period in order to let things stabilize
 
-## Key Uncertainties
+## Uncertainties
 
 - what are the resources in question?
 - how are threats handled?

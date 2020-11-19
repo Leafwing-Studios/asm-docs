@@ -105,7 +105,7 @@ This enum is reused throughout the game, and updated when new strains are create
 - signal intensity needs high granularity to allow for gradual resource build-ups
 - signal intensity must be continuous to avoid ties
 
-## Key Uncertainties
+## Uncertainties
 
 - should signals actually be stored on a per-tile basis? This seems unidiomatic in ECS
   - use external system with proxy system to access it

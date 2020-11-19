@@ -12,7 +12,7 @@ Tangibly, the core AI loop is given by:
 
 1. Once enough time has elapsed, finish current action.
    1. All effects occur during the time step when actions complete.
-   2. This can be done either by comparing to the system clock or using asynchronous methods (see Key Uncertainties).
+   2. This can be done either by comparing to the system clock or using asynchronous methods (see Uncertainties).
 2. If your current intent is not a need, check each of your needs.
    1. If a need is pressing:
       1. If your current intent is a want, store it as `previous_want` if it is a want. This becomes your new intent after the need is complete, but can be overridden in the usual fashion if other needs are still pressing.
@@ -242,7 +242,7 @@ TODO: can we eliminate the randomness?
 - units should not yo-yo between two different needs
 - failing to meet a need should have consequences. Ideally these are smooth
 
-## Key Uncertainties
+## Uncertainties
 
 - how do we manage traffic jams?'
   - is a negative attraction to other units adequate?
