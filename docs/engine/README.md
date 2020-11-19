@@ -1,0 +1,1 @@
+This section contains information on the architectural decisions of the game, driven largely by performance and maintainability concerns.
